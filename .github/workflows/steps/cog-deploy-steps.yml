@@ -1,0 +1,30 @@
+#Note: the 'AZURE_SP' secret is required to be added into GitHub Secrets. See this blog post for details: https://samlearnsazure.blog/2019/12/13/github-actions/
+env:
+  armPath: .
+  subscriptionId: 00000000-0000-0000-0000-000000000000
+  subscriptionName: COMPANY-PRODUCT-001
+  rgName: COMPANY-rg-PRODUCT-001
+  rgLocation: West US 2
+  rgEnvironment: Development
+  cogName: cog-PRODUCT-ENVIRONMENT-001
+  cogSku: S0
+  cogtextName: cogtext-PRODUCT-ENVIRONMENT-001
+  cogtextSku: F0
+jobs:
+  build:
+    steps:
+    - uses: actions/checkout@v2
+    - # "Note: the 'AZURE_SP' secret is required to be added into GitHub Secrets. See this blog post for details: https://samlearnsazure.blog/2019/12/13/github-actions/"
+      name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_SP }}
+    - name: Validate ${{ env.cogName  }}
+      uses: Azure/cli@v1.0.0
+      with:
+        inlineScript: az deployment group create --resource-group ${{ env.rgName  }} --template-file ${{ env.armPath  }}/cog-cognitiveservices.json --parameters  ${{ env.armPath  }}/cog-cognitiveservices.parameters.json -name "${{ env.cogName  }}" -sku "${{ env.cogSku  }}"
+    - name: Validate ${{ env.cogtextName  }}
+      uses: Azure/cli@v1.0.0
+      with:
+        inlineScript: az deployment group create --resource-group ${{ env.rgName  }} --template-file ${{ env.armPath  }}/cogtext-textanalytics.json --parameters  ${{ env.armPath  }}/cogtext-textanalytics.parameters.json -name "${{ env.cogtextName  }}" -sku "${{ env.cogtextSku  }}"
+                    
