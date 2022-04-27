@@ -20,7 +20,7 @@ variables:
       
 stages:
   - stage: development
-    condition: ne(variables['Build.SourceBranch'], 'refs/heads/main')
+    condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
     variables:
       - template: variables/rg-tobi-dev.yml
 
