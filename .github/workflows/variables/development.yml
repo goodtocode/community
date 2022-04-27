@@ -16,7 +16,7 @@ env:
   nugetFeeds: select
   nugetType: internal
   nugetId: 00000000-0000-0000-0000-000000000000
-  storageName: stPRODUCTdev001
+  stName: stPRODUCTdev001
   stblobcnName: stblobcn-PRODUCT-dev-001
   stblobcnNameLower: $[lower(replace(variables['stblobcnName'], '-', ''))]
   teamscnName: teamscn-PRODUCT-dev-001

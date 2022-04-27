@@ -17,7 +17,7 @@ variables:
     value: 'F0'
   - name: 'sqldbName'
     value: 'rachel001'
-  - name: storageName
+  - name: stName
     value: 'stracheldev001'
   - name: workName
     value: 'work-rachel-dev-001'
