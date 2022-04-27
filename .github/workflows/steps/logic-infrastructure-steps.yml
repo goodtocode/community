@@ -3,7 +3,7 @@ env:
   subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   subscriptionName: COMPANY-PRODUCT-001
   rgName: COMPANY-rg-PRODUCT-001
-  rgLocation: West US 2
+  rgLocation: West US 3
   logicPath: .
   logicName: logic-PRODUCT-ENVIRONMENT-001
   logicParameters: logic-PRODUCT-ENVIRONMENT-001

@@ -4,7 +4,7 @@ env:
   subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   subscriptionName: COMPANY-PRODUCT-001
   rgName: COMPANY-rg-PRODUCT-001
-  rgLocation: West US 2
+  rgLocation: West US 3
   rgEnvironment: Development
   cogName: cog-PRODUCT-ENVIRONMENT-001
   cogSku: S0

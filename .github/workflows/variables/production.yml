@@ -3,7 +3,7 @@ env:
   template: common.yml
   rgEnvironment: Production
   rgName: rg-PRODUCT-prod-001
-  locationName: West US 2
+  rgLocation: West US 3
   appInsightsName: appi-PRODUCT-prod-001
   cogName: cog-PRODUCT-prod-001
   cogsku: S0
@@ -23,5 +23,5 @@ env:
   stblobcnNameLower: $[lower(replace(variables['stblobcnName'], '-', ''))]
   teamscnName: teamscn-PRODUCT-prod-001
   teamscnNameLower: $[lower(replace(variables['teamscnName'], '-', ''))]
-  workspaceName: work-PRODUCT-prod-001
+  workName: work-PRODUCT-prod-001
                     
