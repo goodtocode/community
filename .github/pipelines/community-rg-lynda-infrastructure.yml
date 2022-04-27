@@ -1,0 +1,56 @@
+trigger:
+  batch: true
+  branches:
+    include:
+    - '*'
+  paths:
+    include:
+    - .github/pipelines/community-rg-lynda-infrastructure.yml
+
+pr:
+  branches:
+    exclude:
+    - '*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - template: variables/common.yml
+      
+stages:
+  - stage: development
+    condition: ne(variables['Build.SourceBranch'], 'refs/heads/main')
+    variables:
+      - template: variables/lynda.yml
+
+    jobs:
+      - job: deploy_landing_zone
+        steps:
+          - template: steps/landingzone-infrastructure-steps.yml
+            parameters:
+              armPath: '$(infrastructurePath)'
+              subscriptionId: '$(subscriptionId)'
+              subscriptionName: '$(subscriptionName)'
+              rgName: '$(rgName)'
+              rgLocation: '$(rgLocation)'
+              appiName: '$(appiName)'
+              kvName: '$(kvName)'
+              stName: '$(stName)'
+              workName: '$(workName)'
+
+      - job: deploy_sqldb_infrastructure
+        dependsOn: deploy_landing_zone
+        steps:
+          - template: steps/sqldb-infrastructure-steps.yml
+            parameters:
+              armPath: '$(infrastructurePath)'
+              subscriptionId: '$(subscriptionId)'
+              subscriptionName: '$(subscriptionName)'
+              rgName: '$(rgName)'
+              rgLocation: '$(rgLocation)'
+              sqlName: '$(sqlName)'
+              sqlUser: '$(sqlUser)'
+              sqlPassword: '$(sqlPassword)'
+              sqldbName: '$(sqldbName)'
+              sqldbSku: '$(sqldbSku)'

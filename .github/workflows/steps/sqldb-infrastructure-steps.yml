@@ -1,15 +1,15 @@
 #Note: the 'AZURE_SP' secret is required to be added into GitHub Secrets. See this blog post for details: https://samlearnsazure.blog/2019/12/13/github-actions/
 env:
   armPath: .
-  subscriptionId: 00000000-0000-0000-0000-000000000000
+  subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   subscriptionName: COMPANY-PRODUCT-001
   rgName: COMPANY-rg-PRODUCT-001
   rgLocation: West US 2
-  sqlServerName: sb-PRODUCT-ENVIRONMENT-001
-  sqlUserName: LocalAdmin
-  sqlUserPassword: ''
-  sqlDatabaseName: sb-PRODUCT-ENVIRONMENT-001
-  sqlDatabaseSku: Basic
+  sqlName: sb-PRODUCT-ENVIRONMENT-001
+  sqlUser: LocalAdmin
+  sqlPassword: ''
+  sqldbName: sb-PRODUCT-ENVIRONMENT-001
+  sqldbSku: Basic
 jobs:
   build:
     steps:
@@ -22,9 +22,9 @@ jobs:
     - name: Validate ${{ env.sqldbName  }}
       uses: Azure/cli@v1.0.0
       with:
-        inlineScript: az deployment group create --resource-group ${{ env.rgName  }} --template-file ${{ env.armPath  }}/sqldb-sqldatabase.json --parameters  ${{ env.armPath  }}/sqldb-sqldatabase.parameters.json -name "${{ env.sqldbName  }}" -sku "${{ env.sqlDatabaseSku  }}"
+        inlineScript: az deployment group create --resource-group ${{ env.rgName  }} --template-file ${{ env.armPath  }}/sqldb-sqldatabase.json --parameters  ${{ env.armPath  }}/sqldb-sqldatabase.parameters.json -name "${{ env.sqldbName  }}" -sku "${{ env.sqldbSku  }}"
     - name: Deploy ${{ env.sqldbName  }}
       uses: Azure/cli@v1.0.0
       with:
-        inlineScript: az deployment group create --resource-group ${{ env.rgName  }} --template-file ${{ env.armPath  }}/sqldb-sqldatabase.json --parameters  ${{ env.armPath  }}/sqldb-sqldatabase.parameters.json -name "${{ env.sqldbName  }}" -sku "${{ env.sqlDatabaseSku  }}"
+        inlineScript: az deployment group create --resource-group ${{ env.rgName  }} --template-file ${{ env.armPath  }}/sqldb-sqldatabase.json --parameters  ${{ env.armPath  }}/sqldb-sqldatabase.parameters.json -name "${{ env.sqldbName  }}" -sku "${{ env.sqldbSku  }}"
                     

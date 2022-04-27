@@ -3,7 +3,7 @@ env:
   artifactsPath: .
   archiveFile: '*.zip'
   funcName: func-PRODUCT-ENVIRONMENT-001
-  subscriptionId: 00000000-0000-0000-0000-000000000000
+  subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   subscriptionName: COMPANY-PRODUCT-001
 jobs:
   build:

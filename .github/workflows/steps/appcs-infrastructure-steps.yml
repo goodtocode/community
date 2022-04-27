@@ -1,7 +1,7 @@
 #Note: the 'AZURE_SP' secret is required to be added into GitHub Secrets. See this blog post for details: https://samlearnsazure.blog/2019/12/13/github-actions/
 env:
   armPath: .
-  subscriptionId: 00000000-0000-0000-0000-000000000000
+  subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}  
   subscriptionName: COMPANY-PRODUCT-001
   rgName: COMPANY-rg-PRODUCT-001
   rgLocation: West US 2

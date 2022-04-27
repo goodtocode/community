@@ -1,6 +1,6 @@
 env:
   tenantId: 00000000-0000-0000-0000-000000000000
-  subscriptionId: 00000000-0000-0000-0000-000000000000
+  subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   subscriptionName: COMPANY-PRODUCT-001
   artifactsPath: ${{ github.workspace }}
   tempPath: ${{ env.Agent.TempDirectory }}/ymltemp
