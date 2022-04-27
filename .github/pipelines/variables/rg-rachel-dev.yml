@@ -13,8 +13,8 @@ variables:
     value: 'kv-rachel-dev-001'
   - name: 'sqlName'
     value: 'sql-rachel-dev-001'    
-  - name: sqlsku
-    value: 'F0'
+  - name: sqldbSku
+    value: 'Basic'
   - name: 'sqldbName'
     value: 'rachel001'
   - name: stName

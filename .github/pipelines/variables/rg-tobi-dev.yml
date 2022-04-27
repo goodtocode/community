@@ -13,8 +13,8 @@ variables:
     value: 'kv-tobi-dev-001'
   - name: 'sqlName'
     value: 'sql-tobi-dev-001'    
-  - name: sqlsku
-    value: 'F0'
+  - name: sqldbSku
+    value: 'Basic'
   - name: 'sqldbName'
     value: 'tobi001'
   - name: stName
