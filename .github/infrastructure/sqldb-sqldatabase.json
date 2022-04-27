@@ -7,7 +7,7 @@
       "minLength": 1,
       "maxLength": 60
     },
-        "sku": {
+    "sku": {
       "type": "string",
       "defaultValue": "Basic",
       "allowedValues": [
