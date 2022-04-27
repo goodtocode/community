@@ -8,6 +8,6 @@ variables:
   - name: archiveFile
     value: 'archive.zip'
   - name: pipelinesPath
-    value: '$(System.DefaultWorkingDirectory)/pipelines'
+    value: '$(System.DefaultWorkingDirectory)/.github/pipelines'
   - name: infrastructurePath
-    value: '$(System.DefaultWorkingDirectory)/infrastructure'
+    value: '$(System.DefaultWorkingDirectory)/.github/infrastructure'
