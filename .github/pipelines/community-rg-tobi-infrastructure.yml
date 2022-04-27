@@ -22,7 +22,7 @@ stages:
   - stage: development
     condition: ne(variables['Build.SourceBranch'], 'refs/heads/main')
     variables:
-      - template: variables/tobi-dev.yml
+      - template: variables/rg-tobi-dev.yml
 
     jobs:
       - job: deploy_landing_zone
