@@ -4,7 +4,7 @@ variables:
   - name: rgEnvironment
     value: 'Development'
   - name: rgName
-    value: 'rg-rachel-dev-001'
+    value: 'community-rg-rachel-dev-001'
   - name: rgLocation
     value: 'West US 3'
   - name: 'appiName'
@@ -16,7 +16,7 @@ variables:
   - name: sqldbSku
     value: 'Basic'
   - name: 'sqldbName'
-    value: 'rachel001'
+    value: 'sqldb-rachel-dev-001'
   - name: stName
     value: 'stracheldev001'
   - name: workName

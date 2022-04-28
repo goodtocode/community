@@ -4,7 +4,7 @@ variables:
   - name: rgEnvironment
     value: 'Development'
   - name: rgName
-    value: 'rg-lynda-dev-001'
+    value: 'community-rg-lynda-dev-001'
   - name: rgLocation
     value: 'West US 3'
   - name: 'appiName'
@@ -16,7 +16,7 @@ variables:
   - name: sqldbSku
     value: 'Basic'
   - name: 'sqldbName'
-    value: 'lynda001'
+    value: 'sqldb-lynda-dev-001'
   - name: stName
     value: 'stlyndadev001'
   - name: workName
